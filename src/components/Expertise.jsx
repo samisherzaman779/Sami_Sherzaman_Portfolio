@@ -1,5 +1,29 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useMotionValueEvent } from 'framer-motion';
+import { expertiseCards } from '../data/siteContent';
+
+const CARD_LAYOUT = [
+  {
+    className: 'md:absolute md:top-[10px] md:right-[5%] lg:right-[10%] rotate-2 md:rotate-6',
+    aosType: 'fade-left',
+    aosDelay: '100',
+  },
+  {
+    className: 'md:absolute md:top-[450px] md:left-[5%] lg:left-[10%] -rotate-2 md:-rotate-6',
+    aosType: 'fade-right',
+    aosDelay: '200',
+  },
+  {
+    className: 'md:absolute md:top-[700px] md:right-[5%] lg:right-[15%] rotate-1 md:rotate-3',
+    aosType: 'fade-left',
+    aosDelay: '300',
+  },
+  {
+    className: 'md:absolute md:top-[1050px] md:left-[15%] lg:left-[25%] -rotate-1 md:-rotate-3',
+    aosType: 'fade-right',
+    aosDelay: '400',
+  },
+];
 
 const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength, containerRef }) => {
   const ref = useRef(null);
@@ -30,7 +54,7 @@ const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength
       ref={ref}
       data-aos={aosType || "fade-up"}
       data-aos-delay={aosDelay}
-      className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${isActive ? 'bg-[#ff2a2a] border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
+      className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${isActive ? 'bg-brand border-brand-light shadow-[0_20px_50px_rgba(26,54,93,0.35)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
         }`}
     >
       {/* The hole punch */}
@@ -39,15 +63,15 @@ const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength
       </div>
 
       {/* Inner container */}
-      <div className={`w-full h-full rounded-[1.5rem] mt-8 p-8 flex flex-col min-h-[220px] transition-colors duration-700 ${isActive ? 'bg-red-700/50' : 'bg-[#f4f4f4]'
+      <div className={`w-full h-full rounded-[1.5rem] mt-8 p-8 flex flex-col min-h-[220px] transition-colors duration-700 ${isActive ? 'bg-brand-dark/50' : 'bg-[#f4f4f4]'
         }`}>
-        <span className={`text-xl font-bold mb-2 font-serif italic transition-colors duration-700 ${isActive ? 'text-red-200' : 'text-gray-400'
+        <span className={`text-xl font-bold mb-2 font-serif italic transition-colors duration-700 ${isActive ? 'text-slate-200' : 'text-gray-400'
           }`}>{number}</span>
 
         <h3 className={`text-2xl font-black mb-3 tracking-tight transition-colors duration-700 ${isActive ? 'text-white' : 'text-gray-900'
           }`}>{title}</h3>
 
-        <p className={`text-sm leading-relaxed font-medium transition-colors duration-700 ${isActive ? 'text-red-100' : 'text-gray-500'
+        <p className={`text-sm leading-relaxed font-medium transition-colors duration-700 ${isActive ? 'text-slate-100' : 'text-gray-500'
           }`}>
           {text}
         </p>
@@ -87,8 +111,8 @@ const Expertise = () => {
               <path d="M4 4 Q 10 10 15 15 M 15 15 L 10 15 M 15 15 L 15 10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </h2>
-          <p className="text-gray-500 text-base md:text-lg max-w-sm font-medium leading-relaxed">
-            Combining full-stack development, artificial intelligence, and cloud technologies to create scalable and impactful digital experiences.
+          <p className="text-gray-500 text-base md:text-lg max-w-md font-medium leading-relaxed">
+            Full stack web development, AI engineering, data extraction, and cloud deployment — one workflow from idea to production.
           </p>
         </div>
 
@@ -168,47 +192,19 @@ const Expertise = () => {
         {/* Cards Container */}
         <div className="flex flex-col gap-8 md:gap-12 items-center md:block relative z-10 w-full pt-4 md:pt-0 pb-12 md:pb-0">
 
-          <TagCard
-            number="01"
-            title="Frontend Development"
-            text="Crafting responsive and interactive user interfaces using React, JavaScript, Tailwind CSS, and modern frontend technologies to deliver seamless user experiences."
-            className="md:absolute md:top-[10px] md:right-[5%] lg:right-[10%] rotate-2 md:rotate-6"
-            aosType="fade-left"
-            aosDelay="100"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
-          <TagCard
-            number="02"
-            title="Backend Development"
-            text="Building secure REST APIs, authentication systems, server-side applications, and database integrations with scalable architectures."
-            className="md:absolute md:top-[450px] md:left-[5%] lg:left-[10%] -rotate-2 md:-rotate-6"
-            aosType="fade-right"
-            aosDelay="200"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
-
-          <TagCard
-            number="03"
-            title="AI & Machine Learning"
-            text="Developing intelligent applications using NLP, Generative AI, Computer Vision, LLMs, and data-driven machine learning solutions." className="md:absolute md:top-[700px] md:right-[5%] lg:right-[15%] rotate-1 md:rotate-3"
-            aosType="fade-left"
-            aosDelay="300"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
-
-          <TagCard
-            number="04"
-            title="Cloud & Deployment"
-            text="Deploying and managing applications using Docker, GitHub Actions, CI/CD pipelines, cloud platforms, and performance optimization practices."
-            className="md:absolute md:top-[1050px] md:left-[15%] lg:left-[25%] -rotate-1 md:-rotate-3"
-            aosType="fade-right"
-            aosDelay="400"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+          {expertiseCards.map((card, index) => (
+            <TagCard
+              key={card.number}
+              number={card.number}
+              title={card.title}
+              text={card.text}
+              className={CARD_LAYOUT[index].className}
+              aosType={CARD_LAYOUT[index].aosType}
+              aosDelay={CARD_LAYOUT[index].aosDelay}
+              pathLength={pathLength}
+              containerRef={containerRef}
+            />
+          ))}
 
           {/* Hand-drawn end text */}
           <div

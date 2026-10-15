@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import SocialLinks from './SocialLinks';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -70,11 +71,15 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
+          className="bg-brand w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
         >
-          <div className="text-xs font-bold tracking-[0.2em] mb-12 md:mb-20 uppercase opacity-90">
-            Reach Us
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-12 md:mb-16">
+            <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
+              Web · AI · Data — Let&apos;s talk
+            </div>
+            <SocialLinks variant="onDark" includeEmail />
           </div>
+
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-12 md:gap-16 w-full">
             <div className="flex flex-col md:flex-row gap-12 md:gap-20 w-full">
@@ -160,7 +165,7 @@ const Contact = () => {
                   
                   <button 
                     type="submit" 
-                    className="px-8 py-3 rounded-full border border-white/40 text-white font-bold flex items-center justify-center gap-3 hover:bg-white hover:text-[#ff2a2a] transition-all duration-300 group whitespace-nowrap self-start sm:self-auto"
+                    className="px-8 py-3 rounded-full border border-white/40 text-white font-bold flex items-center justify-center gap-3 hover:bg-white hover:text-brand transition-all duration-300 group whitespace-nowrap self-start sm:self-auto"
                   >
                     Send
                     <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

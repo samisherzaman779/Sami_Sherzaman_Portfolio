@@ -1,25 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { skillsData } from '../data/siteContent';
+import SkillsTechStack from './SkillsTechStack';
  
 const Skills = () => {
-  const skillsData = [
-    {
-      category: 'Frontend Development',
-      skills: ['React', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap'],
-    },
-    {
-      category: 'Backend Development',
-      skills: ['Node.js', 'Express.js', 'Java', 'Python', 'REST APIs', 'JWT Auth', 'MySQL', 'MongoDB'],
-    },
-    {
-      category: 'AI & Machine Learning',
-      skills: ['Machine Learning', 'NLP', 'Generative AI', 'LLMs', 'Computer Vision', 'Prompt Engineering'],
-    },
-    {
-      category: 'Tools & Cloud',
-      skills: ['Git', 'GitHub', 'Docker', 'Postman', 'Linux', 'CI/CD', 'AWS','Figma'],
-    },
-  ];
  
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -69,10 +53,10 @@ const Skills = () => {
             damping: 20,
           },
         }}
-        className="group relative bg-white border border-black/5 rounded-3xl p-6 h-fit shadow-sm hover:shadow-xl hover:shadow-red-500/5 transition-all duration-500"
+        className="group relative bg-white border border-black/5 rounded-3xl p-6 h-fit shadow-sm hover:shadow-xl hover:shadow-brand/10 transition-all duration-500"
       >
         {/* Subtle glow on hover */}
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:to-red-500/5 transition-all duration-500 pointer-events-none" />
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand/0 via-brand/0 to-brand/0 group-hover:from-brand/5 group-hover:to-brand/5 transition-all duration-500 pointer-events-none" />
  
         {/* Card content */}
         <div className="relative z-10">
@@ -88,7 +72,7 @@ const Skills = () => {
                 variants={skillPillVariants}
                 initial="initial"
                 whileHover="hover"
-                className="px-3 py-1.5 text-xs font-medium text-black bg-black/3 hover:bg-red-500/10 border border-black/5 hover:border-red-500/20 rounded-full transition-all duration-300 cursor-default select-none hover:text-red-500"
+                className="px-3 py-1.5 text-xs font-medium text-black bg-black/3 hover:bg-brand/10 border border-black/5 hover:border-brand/25 rounded-full transition-all duration-300 cursor-default select-none hover:text-brand"
               >
                 {skill}
               </motion.button>
@@ -100,7 +84,7 @@ const Skills = () => {
   };
  
   return (
-    <section id="skills" className="relative w-full bg-white py-16 md:py-20 overflow-hidden">
+    <section id="skills" className="relative w-full bg-white py-16 md:py-24 overflow-hidden">
       {/* Subtle grid pattern background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24%,rgba(0,0,0,.05)_25%,rgba(0,0,0,.05)_26%,transparent_27%,transparent_74%,rgba(0,0,0,.05)_75%,rgba(0,0,0,.05)_76%,transparent_77%,transparent),linear-gradient(0deg,transparent_24%,rgba(0,0,0,.05)_25%,rgba(0,0,0,.05)_26%,transparent_27%,transparent_74%,rgba(0,0,0,.05)_75%,rgba(0,0,0,.05)_76%,transparent_77%,transparent)] bg-[length:50px_50px]" />
@@ -124,8 +108,8 @@ const Skills = () => {
             Technologies I Work With
           </h2>
  
-          <p className="text-sm text-black/60 font-normal">
-            Full-stack expertise across modern development, AI, and cloud infrastructure.
+          <p className="text-sm text-black/60 font-normal max-w-2xl">
+            Frontend, backend, AI/ML, data extraction, and cloud — aligned with how I work as a full stack, web, AI, and data professional.
           </p>
         </motion.div>
  
@@ -146,6 +130,8 @@ const Skills = () => {
             />
           ))}
         </motion.div>
+
+        <SkillsTechStack />
       </div>
  
       {/* Floating accent elements - very subtle */}
@@ -159,7 +145,7 @@ const Skills = () => {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute top-10 right-10 w-32 h-32 bg-red-500 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-10 right-10 w-32 h-32 bg-brand-light/30 rounded-full blur-3xl pointer-events-none"
       />
  
       <motion.div
@@ -172,7 +158,7 @@ const Skills = () => {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute bottom-20 left-5 w-40 h-40 bg-red-500 rounded-full blur-3xl pointer-events-none"
+        className="absolute bottom-20 left-5 w-40 h-40 bg-brand/25 rounded-full blur-3xl pointer-events-none"
       />
     </section>
   );

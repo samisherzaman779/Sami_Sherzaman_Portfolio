@@ -1,4 +1,6 @@
 import React from 'react';
+import SocialLinks from './SocialLinks';
+import { contact } from '../data/siteContent';
 
 const Footer = () => {
   return (
@@ -7,14 +9,14 @@ const Footer = () => {
       {/* Top Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full font-medium">
         <div className="flex flex-col gap-1">
-          <p>Cinematic & Creative Production</p>
-          <p>Lighting, Editing, Photo</p>
-          <p>Motion Graphics</p>
+          <p>Full Stack · Web · AI</p>
+          <p>Data Extraction & Automation</p>
+          <p>Cloud & Modern Dev Stack</p>
         </div>
         
         <div className="flex flex-col gap-1 md:items-center">
-          <p>5+ years of experience</p>
-          <a href="#work" className="underline hover:text-white transition-colors mt-1 underline-offset-4 decoration-1">View Work</a>
+          <p>Building scalable digital products</p>
+          <a href="#projects" className="underline hover:text-white transition-colors mt-1 underline-offset-4 decoration-1">View Work</a>
         </div>
         
         <div className="flex flex-col gap-1 md:items-end">
@@ -26,7 +28,7 @@ const Footer = () => {
       {/* Middle Huge Text */}
       <div className="w-full flex justify-center items-center py-20 md:py-24 overflow-hidden">
         <h2 className="text-[18vw] md:text-[16vw] leading-none font-sans font-bold tracking-tighter lowercase select-none text-[#f4f4f4] w-full text-center">
-          SUSHMITA
+          SAMI SHERZAMAN
         </h2>
       </div>
 
@@ -35,12 +37,19 @@ const Footer = () => {
         <div className="flex flex-col gap-6">
           <a href="#contact" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 font-bold">Contact</a>
           <p className="text-white/60 font-mono text-[9px] md:text-[10px]">
-            &copy; {new Date().getFullYear()} Sushmita Dasari Studio | Built with React
+            &copy; {new Date().getFullYear()} Sami Sherzaman Studio | Built with React
           </p>
         </div>
         
-        <div className="flex flex-col gap-1 md:items-center">
-          <a href="mailto:sushmita@gmail.com" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase">sushmita@gmail.com</a>
+        <div className="flex flex-col gap-4 md:items-center">
+          <p className="uppercase tracking-[0.2em] text-white/50 text-[9px]">Connect</p>
+          <a
+            href={`mailto:${contact.email}`}
+            className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase"
+          >
+            {contact.email}
+          </a>
+          <SocialLinks variant="footer" includeEmail className="md:justify-center" />
         </div>
         
         <div className="flex flex-col gap-1 md:items-end">

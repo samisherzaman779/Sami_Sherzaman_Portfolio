@@ -1,12 +1,12 @@
 import React from 'react';
-import stackImage from '../assets/about/image.png';
-import reactImage from '../assets/about/react.png';
-import nodeImage from '../assets/about/node.png';
-import mongoImage from '../assets/about/mongodb.png';
+import stackImage from '../assets/about/sami-hero-image.png';
+import { about } from '../data/siteContent';
+import SocialLinks from './SocialLinks';
+
 
 const About = () => {
   return (
-    <section id="about" className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="about" className="bg-brand pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         
         {/* Left Side: ID Badge and Skills */}
@@ -41,30 +41,16 @@ const About = () => {
         <div data-aos="fade-left" data-aos-delay="200" className="flex-1 text-white mt-8 md:mt-0 relative z-20">
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Hello!</h2>
-          <p className="text-lg font-bold mb-12 leading-relaxed max-w-3xl text-red-50">
-            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Sushmita Dasari</span>, a passionate full-stack developer based in [Location], dedicated to crafting clean, functional, and highly scalable web applications.
+          <p className="text-lg font-bold mb-6 leading-relaxed max-w-3xl text-slate-100">
+            {about.intro}
+          </p>
+          <p className="text-base font-semibold mb-12 leading-relaxed max-w-3xl text-slate-200/90">
+            {about.focus}
           </p>
 
-          {/* Horizontal Skills Row (Transparent & Large) */}
-          <div className="flex items-center gap-10 mt-8">
-            <img 
-              data-aos="zoom-in" data-aos-delay="300"
-              src={reactImage} 
-              alt="React" 
-              className="w-20 h-20 md:w-24 md:h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
-            <img 
-              data-aos="zoom-in" data-aos-delay="450"
-              src={nodeImage} 
-              alt="Node.js" 
-              className="w-20 h-20 md:w-24 md:h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
-            <img 
-              data-aos="zoom-in" data-aos-delay="600"
-              src={mongoImage} 
-              alt="MongoDB" 
-              className="w-20 h-20 md:w-24 md:h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
+          <div data-aos="fade-up" data-aos-delay="250" className="mb-10">
+            <p className="text-xs font-bold uppercase tracking-widest text-black/80 mb-3">Connect</p>
+            <SocialLinks variant="onDark" includeEmail />
           </div>
 
         </div>

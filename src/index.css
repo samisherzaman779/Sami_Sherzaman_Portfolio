@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 @theme {
+  /* Gentleman navy — site accent (replaces bright red) */
+  --color-brand: #1a365d;
+  --color-brand-light: #2c5282;
+  --color-brand-dark: #0f2744;
+
   --animate-float: float 6s ease-in-out infinite;
 
   @keyframes float {
