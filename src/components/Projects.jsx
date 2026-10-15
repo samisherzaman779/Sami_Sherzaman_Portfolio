@@ -39,7 +39,7 @@ export const projectsData = [
     image: '/projects_images/samisherzaman-portfolio_image.png',
     tags: ['React', 'Tailwind CSS', 'Vue.js', 'AI-Groq', ],
     gradient: 'from-gray-800 via-brand to-gray-900',
-    liveUrl: '#',
+    liveUrl: 'https://samisherzamanportfolio.vercel.app',
     repoUrl: 'https://github.com/samisherzaman779/Sami_Sherzaman_Portfolio',
   },
   {
