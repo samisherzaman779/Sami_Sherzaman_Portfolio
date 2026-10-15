@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export const projectsData = [
   {
     id: 'proj-01',
-    title: 'E-Commerce Dashboard',
+    title: 'E-Commerce Platform',
     description:
       'Admin dashboard with inventory, orders, and analytics. Dummy copy — swap with your real case study.',
     category: 'Web App',
@@ -24,7 +24,7 @@ export const projectsData = [
     category: 'AI',
     year: '2025',
     image: '/projects_images/Sam.AI-image.png',
-    tags: ['Python', 'OpenAI API', 'FastAPI'],
+    tags: ['TypeScript', 'Geoq API', 'Node.js', 'Next.js'],
     gradient: 'from-slate-900 via-brand-dark to-brand',
     liveUrl: 'https://samai-three.vercel.app/',
     repoUrl: 'https://github.com/samisherzaman779/Sam.AI',
@@ -36,14 +36,27 @@ export const projectsData = [
       'Cinematic personal site with video hero and smooth scroll sections. Template for your reel work.',
     category: 'Frontend',
     year: '2024',
-    image: '/projects_images/portfolio-reel-site.png',
-    tags: ['React', 'Tailwind CSS', 'Vue.js'],
+    image: '/projects_images/samisherzaman-portfolio_image.png',
+    tags: ['React', 'Tailwind CSS', 'Vue.js', 'AI-Groq', ],
     gradient: 'from-gray-800 via-brand to-gray-900',
     liveUrl: '#',
-    repoUrl: '#',
+    repoUrl: 'https://github.com/samisherzaman779/Sami_Sherzaman_Portfolio',
   },
   {
-    id: 'proj-04',
+  id: 'proj-04',
+  title: 'Business Portfolio',
+  description:
+    'Modern personal portfolio showcasing full-stack web development, SaaS solutions, AI integration, and intelligent automation services through a premium, responsive web experience.',
+  category: 'Web Development',
+  year: '2026',
+  image: '/projects_images/personal-business-portfolio.png',
+  tags: ['Next.js', 'React', 'TypeScript', 'AI Integration', 'Web Development'],
+  gradient: 'from-zinc-800 via-brand-dark to-black',
+  liveUrl: 'https://samisherzaman.vercel.app/',
+  repoUrl: 'https://github.com/samisherzaman779/samisherzaman',
+},
+  {
+    id: 'proj-05',
     title: 'Task Collaboration Hub',
     description:
       'Team boards, real-time updates, and role-based access. Dummy data until production links are added.',
@@ -56,31 +69,18 @@ export const projectsData = [
     repoUrl: 'https://github.com/samisherzaman779/ASZ-Stichting',
   },
   {
-    id: 'proj-05',
-    title: 'Market Data Extractor',
-    description:
-      'Scheduled scraping and ETL into structured exports. Placeholder for a data extraction client project.',
-    category: 'Data',
-    year: '2024',
-    image: '/projects_images/market-data-extractor.png',
-    tags: ['Python', 'Pandas', 'AWS'],
-    gradient: 'from-zinc-800 via-brand-dark to-black',
-    liveUrl: '#',
-    repoUrl: '#',
-  },
-  {
-    id: 'proj-06',
-    title: 'Computer Vision Demo',
-    description:
-      'Object detection prototype with a simple web UI. Replace with your ML project details and metrics.',
-    category: 'AI',
-    year: '2023',
-    image: '/projects_images/computer-vision-demo.png',
-    tags: ['Python', 'OpenCV', 'TensorFlow'],
-    gradient: 'from-indigo-950 via-brand to-slate-800',
-    liveUrl: 'https://samai-three.vercel.app/',
-    repoUrl: '#',
-  },
+  id: 'proj-06',
+  title: 'Leadome Business Automation Suite',
+  description:
+    'Business automation platform featuring web scraping, lead and contact extraction, email and phone validation, messaging automation, and AI-powered content generation to streamline business operations.',
+  category: 'AI & Automation',
+  year: '2026',
+  image: '/projects_images/leadome-platform.png',
+  tags: ['Web Scraping', 'Lead Generation', 'Data Validation', 'AI Automation', 'Business Intelligence'],
+  gradient: 'from-indigo-950 via-brand to-slate-800',
+  liveUrl: 'https://leadome.io/',
+  repoUrl: '#',
+},
 ];
 
 const FILTERS = ['All', 'Web App', 'AI', 'Frontend', 'Data'];
@@ -129,21 +129,40 @@ const ProjectCard = ({ project, index }) => (
         <h3 className="text-lg font-bold text-gray-900 tracking-tight group-hover:text-brand transition-colors">
           {project.title}
         </h3>
-        <span className="shrink-0 text-xs font-mono text-gray-400">{project.year}</span>
+        <span className="shrink-0 text-xs font-mono text-gray-400">
+          {project.year}
+        </span>
       </div>
-      <p className="text-sm text-gray-500 leading-relaxed mb-6 flex-1">{project.description}</p>
+
+      <p className="text-sm text-gray-500 leading-relaxed mb-6 flex-1">
+        {project.description}
+      </p>
+
       <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-100">
         <a
           href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-xs font-bold text-brand hover:text-brand-dark underline underline-offset-4 decoration-brand/30"
-          onClick={(e) => project.liveUrl === '#' && e.preventDefault()}
+          onClick={(e) => {
+            if (!project.liveUrl || project.liveUrl === '#') {
+              e.preventDefault();
+            }
+          }}
         >
           Live demo
         </a>
+
         <a
           href={project.repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-xs font-bold text-gray-600 hover:text-gray-900 underline underline-offset-4 decoration-gray-300"
-          onClick={(e) => project.repoUrl === '#' && e.preventDefault()}
+          onClick={(e) => {
+            if (!project.repoUrl || project.repoUrl === '#') {
+              e.preventDefault();
+            }
+          }}
         >
           Source
         </a>
@@ -157,6 +176,7 @@ const Projects = () => {
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === 'All') return projectsData;
+
     return projectsData.filter((p) => p.category === activeFilter);
   }, [activeFilter]);
 
@@ -178,18 +198,21 @@ const Projects = () => {
           <span className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-6 shadow-sm bg-white">
             Selected Work
           </span>
+
           <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
             Projects
           </h2>
+
           <p className="text-gray-500 text-base max-w-2xl font-medium leading-relaxed">
-            Dummy entries for layout and navigation — replace titles, descriptions, links, and thumbnails
-            with your real work when ready.
+            Explore selected projects showcasing web development, AI
+            solutions, and intelligent automation.
           </p>
         </motion.div>
 
         <div className="flex flex-wrap gap-2 mb-10 md:mb-12">
           {FILTERS.map((filter) => {
             const isActive = activeFilter === filter;
+
             return (
               <button
                 key={filter}
@@ -209,12 +232,18 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+            />
           ))}
         </div>
 
         {filteredProjects.length === 0 && (
-          <p className="text-center text-gray-500 text-sm py-16">No projects in this category yet.</p>
+          <p className="text-center text-gray-500 text-sm py-16">
+            No projects in this category yet.
+          </p>
         )}
       </div>
     </section>
