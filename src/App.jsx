@@ -8,6 +8,10 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Chatbot from './components/Chatbot'
+
+// return ke andar, sab se neeche (closing tag se pehle):
+
 
 function App() {
   return (
@@ -21,6 +25,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+      <Chatbot />
     </>
   )
 }

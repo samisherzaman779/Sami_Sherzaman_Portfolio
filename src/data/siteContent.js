@@ -15,24 +15,13 @@ export const about = {
 };
 
 
-/**
- * Social profiles — apni URLs yahan paste karein.
- * Khali `href` = woh link UI mein show nahi hogi.
- *
- * Examples:
- *   GitHub:    https://github.com/samisherzama779
- *   LinkedIn:  https://www.linkedin.com/in/samisherzaman
- *   X:         https://x.com/yourhandle
- *   Instagram: https://www.instagram.com/dev_with_sami
- *   YouTube:   https://www.youtube.com/@samisherzaman
- *   WhatsApp:  https://wa.me/923066039949
- */
+
 export const socialLinks = [
   { id: 'github', label: 'GitHub', href: 'https://github.com/samisherzaman779' },
   { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/sami-sherzaman' },
   { id: 'x', label: 'X (Twitter)', href: 'https://x.com/samisherzaman' },
   { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/dev_with_sami' },
-  { id: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/@samisherzaman2698' },
+  // { id: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/@samisherzaman2698' },
   { id: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/samisherzaman' },
   { id: 'whatsapp', label: 'WhatsApp', href: 'https://wa.me/923066039949' },
 ];
